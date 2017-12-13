@@ -1,0 +1,94 @@
+// I1
+using System;
+
+namespace VL
+{
+    class MainClass
+    {
+        static int[,] sumMatrix (int[,] x, int[,] y, out double z)
+        {
+            var result = new int[3,3];
+            z = 0.0;
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    result[i, j] = x[i, j] + y[i, j];
+                }
+            }
+
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    z += result[i, j];
+                }
+            }
+            z /= 9;
+            return result;
+
+        }
+
+        static int[,] difMatrix(int[,] x, int[,] y, out double z)
+        {
+            var result = new int[3, 3];
+            z = 0.0;
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    result[i, j] = x[i, j] - y[i, j];
+                }
+            }
+
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    z += result[i, j];
+                }
+            }
+            z /= 9;
+            return result;
+
+        }
+        static void Main(string[] args)
+        {
+            var array1 = new int[,] { { 1,2,3},{ 1,2,3},{ 1,2,3 } };
+            var array2 = new int[,] { { 43, 2, 5 }, { 1, 23, 3 }, { 43, 2, 54 } };
+
+            double z;
+            var sum = sumMatrix(array1, array2, out z);
+
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    Console.Write(sum[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
+
+            Console.WriteLine();
+
+            Console.WriteLine(z);
+
+            Console.WriteLine();
+
+            var dif = difMatrix(array1, array2, out z);
+
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    Console.Write(dif[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
+
+            Console.WriteLine();
+
+            Console.WriteLine(z);
+        }
+    }
+}

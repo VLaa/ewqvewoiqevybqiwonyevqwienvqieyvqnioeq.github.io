@@ -1,0 +1,44 @@
+using System;
+
+namespace Strings
+{
+    class Program
+    {
+
+        static void Main(string[] args)
+        {
+
+            Random rand = new Random();
+            Console.Write("Length array: ");
+            short n = short.Parse(Console.ReadLine());
+
+            Console.WriteLine("\n");
+
+            int[] array = new int[n];
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = rand.Next(-30, 46); // [-30,46)
+            }
+
+            // output array (10 columns)
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (i != 0 && i % 10 == 0) Console.WriteLine();
+                Console.Write("{0,5} ",array[i]);
+            }
+
+            Console.WriteLine("\n");
+
+            // output reverse array for only value >= 0
+
+            for (int i = array.Length-1; i >= 0; i--)
+            {
+                if(array[i] >= 0) Console.Write("{0}\t", array[i]);
+            }
+
+            Console.WriteLine("\n\n\n");
+
+        }
+    }
+}

@@ -1,0 +1,43 @@
+// I1
+using System;
+
+namespace VL
+{
+    class MainClass
+    {
+        static int[,] multiMatrix (int[,] x, int[,] y)
+        {
+            var result = new int[5,5];
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < 5; j++)
+                {
+                    result[i, j] = x[i, j] * y[i, j];
+                }
+            }
+
+            return result;
+
+        }
+
+        static void Main(string[] args)
+        {
+            var array1 = new int[,] { { 1, 2, 32, 32, 3 },{ 1,2, 32, 32, 32 }, { 1, 2, 32, 32, 32 }, { 1, 2, 32, 32, 32 }, { 1, 2, 32, 32, 32 } };
+            var array2 = new int[,] { { 1, 2, 32, 32, 3 }, { 1, 2, 32, 32, 32 }, { 1, 2, 32, 32, 32 }, { 1, 2, 32, 32, 32 }, { 1, 2, 32, 32, 32 } };
+
+            var multi = multiMatrix(array1, array2);
+
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < 5; j++)
+                {
+                    Console.Write(multi[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
+
+
+            Console.WriteLine();
+        }
+    }
+}

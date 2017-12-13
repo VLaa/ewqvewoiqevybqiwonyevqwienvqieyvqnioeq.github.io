@@ -1,0 +1,30 @@
+// I1
+using System;
+
+namespace VL
+{
+    class MainClass
+    {
+        static int F(int n)
+        {
+            if (n == 0)
+            {
+                return 0;
+            }
+            if (n == 1)
+            {
+                return 1;
+            }
+            else
+            {
+                return F(n - 1) + F(n - 2);
+            }
+        }
+
+        static void Main(string[] args)
+        {
+            int n = int.Parse(Console.ReadLine());
+            Console.WriteLine(F(n));
+        }
+    }
+}

@@ -1,0 +1,37 @@
+using System;
+
+namespace ConsoleApplication
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n = 0;
+            do
+            {
+                Console.WriteLine("¬ведите четное чисLо эLементов:");
+                 n = int.Parse(Console.ReadLine());
+            } while ( n%2!=0 && n>0);
+            var array = new int[n];
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                Console.WriteLine("ЁLемент:" + i);
+                array[i] = int.Parse(Console.ReadLine());
+            }
+
+            int sumL = 0;
+
+            for (int i = 0; i < array.Length / 2; sumL += array[i++]);
+
+            int sumR = 0;
+
+            for (int i = array.Length/2; i < array.Length; sumR += array[i++]) ;
+            Console.WriteLine(sumL - sumR);
+        }
+
+
+        
+    }
+
+}
